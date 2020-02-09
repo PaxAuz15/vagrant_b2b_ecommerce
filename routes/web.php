@@ -17,5 +17,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add');
+Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth'); //pide autorizacion por login antes de ingresar a esta accion
 
