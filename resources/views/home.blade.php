@@ -2,22 +2,25 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <h2>Products</h2>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="row">
 
-                    You are logged in!
-                </div>
+        @foreach ($allProducts as $product)
+        {{-- <div class="card"> --}}
+        <div class="col-4">
+            <img class="card-img-top" src="{{ asset('default-product.jpg')}}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">{{$product->name}}</h4>
+                <p class="card-text">{{$product->description}}</p>
+            </div>
+            <div class="card-body">
+                <a href="#" class="card-link">Add to cart</a>
             </div>
         </div>
+        @endforeach
+
+
     </div>
 </div>
 @endsection
