@@ -15,7 +15,7 @@
                 <p class="card-text">{{$product->description}}</p>
             </div>
             <div class="card-body">
-                <a href="#" class="card-link">Add to cart</a>
+                <a href="{{route('cart.add', $product->id)}}" class="card-link">Add to cart</a>
             </div>
         </div>
         @endforeach
