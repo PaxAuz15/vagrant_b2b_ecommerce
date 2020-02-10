@@ -40,7 +40,16 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('cart.index')}}">Cart</a>
+                            <a class="nav-link" href="{{route('cart.index')}}">
+                                Cart
+
+                                <div class="badge">
+                                    {{-- {{ Cart::session(auth()->id())->getTotalQuantity() }} MUESTRA EL TOTAL DE ELEMENTOS A COMPRAR --}}
+
+                                    {{ Cart::session(auth()->id())->getContent()->count()}}
+                                    {{-- MUESTRA EL TOTAL DE ELEMENTOS DISTINTOS A COMPRAR --}}
+                                </div>
+                            </a>
                         </li>
 
                         <!-- Authentication Links -->
