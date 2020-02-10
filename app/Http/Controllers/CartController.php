@@ -28,4 +28,10 @@ class CartController extends Controller
         $cartItems = \Cart::session(auth()->id())->getContent();
         return view('cart.index', compact('cartItems'));
     }
+
+    public function destroy($itemId)
+    {
+        \Cart::session(auth()->id())->remove($itemId);
+        return back();
+    }
 }

@@ -11,6 +11,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,9 @@
                 <td>{{ $item->price }}</td>
                 <td>
                     <input type="number" value="{{ $item->quantity }}">
+                </td>
+                <td>
+                <a href="{{ route('cart.destroy', $item->id)}}">Delete</a>
                 </td>
             </tr>
 
