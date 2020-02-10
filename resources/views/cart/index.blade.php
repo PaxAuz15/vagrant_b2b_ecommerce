@@ -40,5 +40,9 @@
         </tbody>
      </table>
 
+     <h3>
+         Total Price : $ {{ \Cart::session(auth()->id())->getTotal()}}
+     </h3>
+
 
 @endsection
