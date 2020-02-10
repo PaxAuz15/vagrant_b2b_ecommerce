@@ -20,7 +20,10 @@
 
             <tr>
                 <td scope="row">{{ $item->name }}</td>
-                <td>{{ $item->price }}</td>
+                <td>
+                    {{-- {{ $item->price }} --}}
+                    {{ Cart::session(auth()->id())->get($item->id)->getPriceSum() }}
+                </td>
                 <td>
                     <form action="{{ route('cart.update', $item->id) }}">
                         <input name="quantity" type="number" value="{{ $item->quantity }}">
