@@ -22,7 +22,10 @@
                 <td scope="row">{{ $item->name }}</td>
                 <td>{{ $item->price }}</td>
                 <td>
-                    <input type="number" value="{{ $item->quantity }}">
+                    <form action="{{ route('cart.update', $item->id) }}">
+                        <input name="quantity" type="number" value="{{ $item->quantity }}">
+                        <input type="submit" value="save">
+                    </form>
                 </td>
                 <td>
                 <a href="{{ route('cart.destroy', $item->id)}}">Delete</a>

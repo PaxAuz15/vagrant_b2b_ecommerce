@@ -34,4 +34,13 @@ class CartController extends Controller
         \Cart::session(auth()->id())->remove($itemId);
         return back();
     }
+
+    public function update($rowId)
+    {
+        \Cart::session(auth()->id())->update($rowId, [
+            'quantity' => request('quantity')
+        ]);
+
+        return back();
+    }
 }
