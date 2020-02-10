@@ -11,5 +11,21 @@ class CartController extends Controller
     {
         dd($product);
 
+        //add to cart
+        Cart::session(auth()->id())->add(array(
+            'id' => $product->id,
+            'name'=> $product->name,
+            'price'=> $product->price,
+            'quantity'=> 4,
+            'attributes'=> array(),
+            'associatedModel'=> $product
+        ));
+
+        return back();
+    }
+
+    public function index()
+    {
+        return view('cart.index');
     }
 }
