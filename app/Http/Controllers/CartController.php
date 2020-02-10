@@ -21,7 +21,7 @@ class CartController extends Controller
             'associatedModel'=> $product
         ));
 
-        return back();
+        return redirect()->route('cart.index');
     }
 
     public function index()
