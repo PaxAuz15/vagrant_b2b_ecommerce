@@ -20,7 +20,9 @@
             <tr>
                 <td scope="row">{{ $item->name }}</td>
                 <td>{{ $item->price }}</td>
-                <td>{{ $item->quantity }}</td>
+                <td>
+                    <input type="number" value="{{ $item->quantity }}">
+                </td>
             </tr>
 
             @endforeach
