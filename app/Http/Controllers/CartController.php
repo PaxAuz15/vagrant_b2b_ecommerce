@@ -38,7 +38,10 @@ class CartController extends Controller
     public function update($rowId)
     {
         \Cart::session(auth()->id())->update($rowId, [
-            'quantity' => request('quantity')
+            'quantity' => array(
+                'relative' => false,
+                'value' => request('quantity')
+            )
         ]);
 
         return back();
