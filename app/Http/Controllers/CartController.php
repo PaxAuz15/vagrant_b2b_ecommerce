@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Product;
-use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -13,7 +12,7 @@ class CartController extends Controller
         dd($product);
 
         //add to cart
-        Cart::session(auth()->id())->add(array(
+        \Cart::session(auth()->id())->add(array(
             'id' => $product->id,
             'name'=> $product->name,
             'price'=> $product->price,
