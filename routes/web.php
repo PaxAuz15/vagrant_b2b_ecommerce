@@ -26,3 +26,5 @@ Route::get('/cart/destroy/{itemId}', 'CartController@destroy')->name('cart.destr
 Route::get('/cart/update/{itemId}', 'CartController@update')->name('cart.update')->middleware('auth'); //pide autorizacion por login antes de ingresar a esta accion
 
 Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout')->middleware('auth'); //pide autorizacion por login antes de ingresar a esta accion
+
+Route::resource('orders', 'OrderController')->middleware('auth');
