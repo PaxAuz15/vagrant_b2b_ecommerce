@@ -6,7 +6,7 @@
 
     <h3>Shipping Information</h3>
 
-    <form action="{{ route('orders.store') }}">
+    <form action="{{ route('orders.store') }}" method="POST">
 
         @csrf
 
