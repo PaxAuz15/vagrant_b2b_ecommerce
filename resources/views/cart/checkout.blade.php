@@ -10,8 +10,6 @@
 
         @csrf
 
-        @include('_errors')
-
         <div class="form-group">
           <label for="">Full Name</label>
           <input type="text" name="shipping_fullname" id="" class="form-control">
