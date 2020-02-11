@@ -44,11 +44,11 @@
                                 Cart
 
                                 <div class="badge badge-danger">
-                                    {{-- @auth --}}
+                                    @auth
                                         {{Cart::session(auth()->id())->getContent()->count()}}
-                                    {{-- @else
+                                    @else
                                         0
-                                    @endauth --}}
+                                    @endauth
                                 </div>
                             </a>
                         </li>
