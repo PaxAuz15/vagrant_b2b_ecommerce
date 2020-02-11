@@ -43,11 +43,12 @@
                             <a class="nav-link" href="{{route('cart.index')}}">
                                 Cart
 
-                                <div class="badge">
-                                    {{-- {{ Cart::session(auth()->id())->getTotalQuantity() }} MUESTRA EL TOTAL DE ELEMENTOS A COMPRAR --}}
-
-                                    {{ Cart::session(auth()->id())->getContent()->count()}}
-                                    {{-- MUESTRA EL TOTAL DE ELEMENTOS DISTINTOS A COMPRAR --}}
+                                <div class="badge badge-danger">
+                                    {{-- @auth --}}
+                                        {{Cart::session(auth()->id())->getContent()->count()}}
+                                    {{-- @else
+                                        0
+                                    @endauth --}}
                                 </div>
                             </a>
                         </li>
