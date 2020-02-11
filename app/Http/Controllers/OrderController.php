@@ -82,7 +82,23 @@ class OrderController extends Controller
 
         $order->save();
 
-        dd('order created', $order);
+        //save order items
+
+        $cartItems = \Cart::session(auth()->id())->getContent();
+
+        foreach($cartItems as $item){
+            $order->items()->attach($item->id, ['price'=>$item->price, 'quantity'=> $item->quantity]);
+        }
+
+        //empty cart
+        \Cart::session(auth()->id())->clear();
+
+        ///send email to customer
+
+        //take user to thank you
+
+        return "order completed, thank you for order";
+        // dd('order created', $order);
 
     }
 
