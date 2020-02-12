@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'ECT',
+    'timezone' => env('APP_TIMEZONE','America/Guayaquil'),
 
     /*
     |--------------------------------------------------------------------------
