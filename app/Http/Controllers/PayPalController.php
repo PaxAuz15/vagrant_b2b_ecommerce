@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Darryldecode\Cart\Cart;
+// use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
@@ -10,7 +10,7 @@ class PayPalController extends Controller
 {
     public function getExpressCheckout()
     {
-        $cart = Cart::session(auth()->id());
+        $cart = \Cart::session(auth()->id());
         dd($cart->getContent());
         // $cartItems = [
         //     [
