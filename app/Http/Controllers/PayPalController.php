@@ -11,6 +11,7 @@ class PayPalController extends Controller
     public function getExpressCheckout()
     {
         $cart = Cart::session(auth()->id());
+        dd($cart->getContent());
         // $cartItems = [
         //     [
         //         'name'  => 'Product 1',
@@ -24,7 +25,7 @@ class PayPalController extends Controller
         //     ],
         // ];
 
-        $cartItems = array_map($cart->getContent());
+        // $cartItems = array_map($cart->getContent());
 
 
         $checkoutData = [
