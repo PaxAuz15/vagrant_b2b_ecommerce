@@ -40,7 +40,23 @@
             <input type="text" name="shipping_phone" id="" class="form-control">
         </div>
 
-        <button type="submit" class="btn btn-primary">Place Order</button>
+        <h4>Paymen option</h4>
+
+        <div class="form-check">
+            <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="" id="" value="cash_on_delivery">
+            Cash on delivery
+          </label>
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="" id="" value="paypal">
+            Paypal
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Place Order</button>
     </form>
 
 @endsection
