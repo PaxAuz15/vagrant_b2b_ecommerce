@@ -35,7 +35,8 @@ class PayPalController extends Controller
 
         $response = $provider->setExpressCheckout($checkoutData);
 
-        dd($response);
+        dd($response); //works!
+
     }
 
     public function cancelPage()
