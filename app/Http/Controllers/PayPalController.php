@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use NunoMaduro\Collision\Provider;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PayPalController extends Controller
@@ -11,19 +12,6 @@ class PayPalController extends Controller
     public function getExpressCheckout()
     {
         $cart = \Cart::session(auth()->id());
-        // dd($cart->getContent()->toarray());
-        // $cartItems = [
-        //     [
-        //         'name'  => 'Product 1',
-        //         'price' => 9.99,
-        //         'qty'   => 1,
-        //     ],
-        //     [
-        //         'name'  => 'Product 2',
-        //         'price' => 4.99,
-        //         'qty'   => 2,
-        //     ],
-        // ];
 
         $cartItems = array_map(function($item){
             return [
@@ -32,9 +20,6 @@ class PayPalController extends Controller
                 'qty' => $item['quantity']
             ];
         }, $cart->getContent()->toarray());
-
-        dd($cartItems);
-
 
         $checkoutData = [
             'items'=>$cartItems,
@@ -48,7 +33,9 @@ class PayPalController extends Controller
 
         $provider = new ExpressCheckout();
 
-        $provider->setExpressCheckout($checkoutData);
+        $response = $provider->setExpressCheckout($checkoutData);
+
+        dd($response);
     }
 
     public function cancelPage()
