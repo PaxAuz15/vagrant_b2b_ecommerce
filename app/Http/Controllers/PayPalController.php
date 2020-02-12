@@ -11,7 +11,7 @@ class PayPalController extends Controller
     public function getExpressCheckout()
     {
         $cart = \Cart::session(auth()->id());
-        dd($cart->getContent());
+        dd($cart->getContent()->toarray());
         // $cartItems = [
         //     [
         //         'name'  => 'Product 1',
