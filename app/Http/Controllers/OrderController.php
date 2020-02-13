@@ -92,10 +92,12 @@ class OrderController extends Controller
 
         //payment
 
-        if(request('payment_method') == 'paypal'){
+        //payment
+        if(request('payment_method') == 'paypal') {
             //redirect to paypal
+        return redirect()->route('paypal.checkout');
 
-        }
+    }
 
         //empty cart
         // \Cart::session(auth()->id())->clear();
