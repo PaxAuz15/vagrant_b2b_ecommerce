@@ -78,6 +78,12 @@ class OrderController extends Controller
 
         $order->user_id = auth()->id();
 
+        if(request('payment_method') == 'paypal'){
+            $order->payment_method = 'paypal';
+        }
+            //redirect to paypal
+
+
         // $order->status = 'pending';
 
         $order->save();
