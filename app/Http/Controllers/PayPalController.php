@@ -73,10 +73,16 @@ class PayPalController extends Controller
                 $order = Order::find($orderId);
                 $order->is_paid = 1;
                 $order->save();
+
+                //send email
+
+                return redirect('/')->withMessage('Payment successful!');
             }
         }
 
+        return redirect('/')->withMessage('Payment UnSuccessful! Something went wrong');
 
-        dd('Payment successfull');
+
+        dd('Payment successful');
     }
 }
