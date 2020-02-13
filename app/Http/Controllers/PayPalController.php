@@ -11,6 +11,20 @@ class PayPalController extends Controller
 {
     public function getExpressCheckout()
     {
+        $checkoutData = $this->checkoutData();
+
+        $provider = new ExpressCheckout();
+
+        $response = $provider->setExpressCheckout($checkoutData);
+
+        // dd($response); //works!
+
+        return redirect($response['paypal_link']);
+
+    }
+
+    private function checkoutData(){
+
         $cart = \Cart::session(auth()->id());
 
         $cartItems = array_map(function($item){
@@ -31,18 +45,30 @@ class PayPalController extends Controller
             'total'=>$cart->getTotal()
         ];
 
-        $provider = new ExpressCheckout();
-
-        $response = $provider->setExpressCheckout($checkoutData);
-
-        // dd($response); //works!
-
-        return redirect($response['paypal_link']);
-
+        return $checkoutData;
     }
 
     public function cancelPage()
     {
         dd('payment failed');
+    }
+
+    public function getExpressCheckoutSuccess(Request $request)
+    {
+        $token = $request->get('token');
+        $payerId = $request->get('PayerID');
+        $provider = new ExpressCheckout();
+        $checkoutData = $this->checkoutData();
+
+        $response = $provider->getExpressCheckoutDetails($token);
+
+        if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])){
+
+            //Perform transaction on PayPal
+            $paymen_status = $provider->doExpressCheckoutPayment($checkoutData, $token, $payerId);
+            $status = $paymen_status['PAYMENTINFO_0_PAYMENTSTATUS'];
+        }
+
+        dd('Payment successfull');
     }
 }
