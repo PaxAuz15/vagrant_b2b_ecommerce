@@ -106,13 +106,14 @@ class OrderController extends Controller
     }
 
         //empty cart
-        // \Cart::session(auth()->id())->clear();
+        \Cart::session(auth()->id())->clear();
 
         ///send email to customer
 
         //take user to thank you
+        return redirect('/')->withMessage('Order has been placed');
 
-        return "order completed, thank you for order";
+        // return "order completed, thank you for order";
         // dd('order created', $order);
 
     }
