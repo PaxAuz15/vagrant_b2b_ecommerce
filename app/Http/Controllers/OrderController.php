@@ -111,7 +111,7 @@ class OrderController extends Controller
         ///send email to customer
 
         //take user to thank you
-        return redirect('/')->withMessage('Order has been placed');
+        return redirect()->route('home')->withMessage('Order has been placed');
 
         // return "order completed, thank you for order";
         // dd('order created', $order);
