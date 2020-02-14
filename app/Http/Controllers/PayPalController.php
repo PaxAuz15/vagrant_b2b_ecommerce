@@ -81,11 +81,11 @@ class PayPalController extends Controller
 
                 Mail::to($order->user->email)->send(new OrderPaid($order));
 
-                return redirect('/')->withMessage('Payment successful!');
+                return redirect()->route('home')->withMessage('Payment successful!');
             }
         }
 
-        return redirect('/')->withMessage('Payment UnSuccessful! Something went wrong');
+        return redirect()->route('home')->withMessage('Payment UnSuccessful! Something went wrong');
 
 
         dd('Payment successful');
