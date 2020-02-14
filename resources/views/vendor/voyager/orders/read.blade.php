@@ -36,7 +36,7 @@
 @section('content')
     <div class="page-content read container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
 
                 <div class="panel panel-bordered" style="padding-bottom:5px;">
                     <!-- form start -->
@@ -136,6 +136,14 @@
                         @endif
                     @endforeach
 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Order Items</div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
                 </div>
             </div>
         </div>
