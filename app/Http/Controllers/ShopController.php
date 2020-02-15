@@ -24,7 +24,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        //
+        return view('shops.create');
     }
 
     /**
@@ -35,7 +35,19 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //add validation
+        $request->validate([
+            'name'=>'required'
+        ]);
+
+        //save db
+        auth()->user()->shop()->create([
+            'name'=>$request->input('name'),
+            'description'=>$request->input('description'),
+        ]);
+
+        //send email to admin
+
     }
 
     /**
