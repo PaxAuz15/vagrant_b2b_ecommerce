@@ -47,7 +47,7 @@ class ShopController extends Controller
         ]);
 
         //send email to admin
-
+        return redirect()->route('home')->withMessage('Create shop request sent');
     }
 
     /**
