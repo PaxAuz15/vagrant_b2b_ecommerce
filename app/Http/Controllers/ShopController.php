@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ShopActivationRequest;
 use App\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ShopController extends Controller
 {
@@ -41,12 +43,18 @@ class ShopController extends Controller
         ]);
 
         //save db
-        auth()->user()->shop()->create([
+        $shop = auth()->user()->shop()->create([
             'name'=>$request->input('name'),
             'description'=>$request->input('description'),
         ]);
 
         //send email to admin
+        $admins = User::whereHas('role', function($q){
+            $q->where('name','admin');
+        })->get();
+
+        Mail::to($admins)->send(new ShopActivationRequest($shop));
+
         return redirect()->route('home')->withMessage('Create shop request sent');
     }
 
