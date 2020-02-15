@@ -36,7 +36,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('shop.create') }}">{{ __('Open Your Shop') }}</a>
+                            <a class="nav-link" href="{{ route('shops.create') }}">{{ __('Open Your Shop') }}</a>
                         </li>
                     </ul>
 
