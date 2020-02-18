@@ -25,7 +25,7 @@ class ShopObserver
      */
     public function updated(Shop $shop)
     {
-        //
+        dd($shop);
     }
 
     /**
