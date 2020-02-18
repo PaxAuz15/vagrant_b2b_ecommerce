@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Mail\ShopActivated;
 use App\Shop;
+use Illuminate\Support\Facades\Mail;
 
 class ShopObserver
 {
@@ -28,13 +30,18 @@ class ShopObserver
         //check if active column is changed from inactive to active
 
         if($shop->getOriginal('is_active') == false && $shop->is_active == true){
-            dd('shop made active');
+            // dd('shop made active');
+
+            //send mail to customer
+            Mail::to($shop->owner)->send(new ShopActivated($shop));
+
+            //change role from customer to seller
+
+
         }else {
             dd('shop changed to inactive');
         }
-            //send mail to customer
 
-            //change role from customer to seller
     }
 
     /**
