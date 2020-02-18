@@ -26,7 +26,12 @@ class ShopObserver
     public function updated(Shop $shop)
     {
         //check if active column is changed from inactive to active
-        dd($shop->is_active, $shop->getOriginal('is_active'));
+
+        if($shop->getOriginal('is_active') == false && $shop->is_active == true){
+            dd('shop made active');
+        }else {
+            dd('shop changed to inactive');
+        }
             //send mail to customer
 
             //change role from customer to seller
