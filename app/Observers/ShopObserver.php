@@ -36,10 +36,10 @@ class ShopObserver
             Mail::to($shop->owner)->send(new ShopActivated($shop));
 
             //change role from customer to seller
-
+            $shop->owner->setRole('seller');
 
         }else {
-            dd('shop changed to inactive');
+            // dd('shop changed to inactive');
         }
 
     }
