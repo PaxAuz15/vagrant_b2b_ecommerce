@@ -12,7 +12,7 @@ class ShopPolicy
 
     public function browse(user $user)
     {
-        return true;
+        return $user->hasRole('seller');
     }
 
     /**
