@@ -10,6 +10,13 @@ class ShopPolicy
 {
     use HandlesAuthorization;
 
+    public function before($user, $ability)
+    {
+        if($user->hasRole('admin')){
+            return true;
+        }
+    }
+
     public function browse(user $user)
     {
         return $user->hasRole('seller');
