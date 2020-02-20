@@ -10,6 +10,11 @@ class ShopPolicy
 {
     use HandlesAuthorization;
 
+    public function browse(user $user)
+    {
+        return true;
+    }
+
     /**
      * Determine whether the user can view any shops.
      *
