@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use TCG\Voyager\Database\Schema\SchemaManager;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
 class ShopController extends VoyagerBaseController
