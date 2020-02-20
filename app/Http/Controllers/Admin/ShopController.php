@@ -67,8 +67,9 @@ class ShopController extends VoyagerBaseController
             }
 
             //query to display seller's shop only
-
-            $query->where('user_id', auth()->id());
+            if(auth()->user()->hasRole('seller')){
+                $query->where('user_id', auth()->id());
+            }
 
             // Use withTrashed() if model uses SoftDeletes and if toggle is selected
             if ($model && in_array(SoftDeletes::class, class_uses_recursive($model)) && Auth::user()->can('delete', app($dataType->model_name))) {
