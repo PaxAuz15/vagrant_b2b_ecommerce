@@ -22,7 +22,7 @@ class ShopController extends VoyagerBaseController
 
     public function index(Request $request)
     {
-        dd('this is index method');
+        // dd('this is index method');
         // GET THE SLUG, ex. 'posts', 'pages', etc.
         $slug = $this->getSlug($request);
 
