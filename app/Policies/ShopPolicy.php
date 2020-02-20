@@ -30,7 +30,7 @@ class ShopPolicy
      */
     public function view(User $user, Shop $shop)
     {
-        //
+        return $user->id == $shop->user_id;
     }
 
     /**
@@ -53,7 +53,7 @@ class ShopPolicy
      */
     public function update(User $user, Shop $shop)
     {
-        //
+        return $user->id == $shop->user_id;
     }
 
     /**
