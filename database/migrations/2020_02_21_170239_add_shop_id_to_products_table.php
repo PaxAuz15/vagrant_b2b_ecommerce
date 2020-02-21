@@ -16,7 +16,7 @@ class AddShopIdToProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('shop_id');
 
-            $table->foreign('shop_id')->preferences('id')->on('shops')->onDelete('cascade');
+            // $table->foreign('shop_id')->preferences('id')->on('shops')->onDelete('cascade');
         });
     }
 
