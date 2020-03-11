@@ -20,10 +20,15 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->string('cover_img')->nullable();
 
-            $table->unsignedBigInteger('shop_id')->nullable();
-            $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
+
 
             $table->timestamps();
+        });
+
+        Schema::table('products', function(Blueprint $table)
+        {
+            $table->unsignedBigInteger('shop_id')->nullable();
+            $table->foreign('shop_id')->references('id')->on('shops')->onDelete('cascade');
         });
     }
 
