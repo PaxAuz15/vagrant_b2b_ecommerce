@@ -270,14 +270,14 @@ class MenuItemsTableSeeder extends Seeder
                 'order' => 16,
                 'created_at' => '2020-02-19 17:15:37',
                 'updated_at' => '2020-02-19 17:20:29',
-                'route' = 'voyager.shops.index',
+                'route' => 'voyager.shops.index',
                 'parameters' => 'null',
             ),
             16 =>
             array (
                 'id' => 17,
                 'menu_id' => 1,
-                'tittle' => 'Products',,
+                'tittle' => 'Products',
                 'url' => '',
                 'target' => '_self',
                 'icon_class' => 'voyager-bag',
