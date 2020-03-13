@@ -12,7 +12,7 @@ class ShopSeeder extends Seeder
      */
     public function run()
     {
-        factory(Shop::class)->create(['user_id'=>4]);
         factory(Shop::class)->create(['user_id'=>5]);
+        factory(Shop::class)->create(['user_id'=>6]);
     }
 }
