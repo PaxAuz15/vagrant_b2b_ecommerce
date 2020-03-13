@@ -88,6 +88,6 @@ class PayPalController extends Controller
         return redirect()->route('home')->withMessage('Payment UnSuccessful! Something went wrong');
 
 
-        dd('Payment successful');
+        //dd('Payment successful');
     }
 }
