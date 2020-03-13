@@ -28,7 +28,7 @@ class ShopPolicy
     }
 
     /**
-     * Determine whether the user can update any shops.
+     * Determine whether the user can update the shop.
      *
      * @param  \App\User  $user
      * @return mixed
