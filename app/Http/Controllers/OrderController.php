@@ -81,8 +81,6 @@ class OrderController extends Controller
         if(request('payment_method') == 'paypal'){
             $order->payment_method = 'paypal';
         }
-            //redirect to paypal
-
 
         // $order->status = 'pending';
 
@@ -95,8 +93,6 @@ class OrderController extends Controller
         foreach($cartItems as $item){
             $order->items()->attach($item->id, ['price'=>$item->price, 'quantity'=> $item->quantity]);
         }
-
-        //payment
 
         //payment
         if(request('payment_method') == 'paypal') {
